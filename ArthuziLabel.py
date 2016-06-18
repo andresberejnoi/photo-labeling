@@ -11,6 +11,12 @@ def file_handler():
     newfolderpath = directory + '/labeled'
     if not os.path.exists(newfolderpath):
         os.mkdir(newfolderpath)
+        
+    #------------------------------------
+    #The following section added by Andres
+    num_files = len(file_list)
+    num_labeled = 0
+    #------------------------------------
     for each in file_list:
         img = cv2.imread(each)
         #x=60        
@@ -29,5 +35,7 @@ def file_handler():
             os.remove(newfile)
         cv2.imwrite(newfile, labeled)
         os.chdir(directory)
+        num_labeled += 1        #Added by Andres
+        print ("labeled:","""({0}/{1})""".format(num_labeled,num_files))        #Added by Andres
 
 file_handler()
