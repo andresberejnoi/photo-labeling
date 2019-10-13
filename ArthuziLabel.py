@@ -38,4 +38,5 @@ def file_handler():
         num_labeled += 1        #Added by Andres
         print ("labeled:","""({0}/{1})""".format(num_labeled,num_files))        #Added by Andres
 
-file_handler()
+if __name__ == '__main__':
+    file_handler()
